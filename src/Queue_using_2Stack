@@ -1,0 +1,75 @@
+import java.util.*;
+public class Modified_Queue {
+Stack st1=new Stack();
+     Stack st2=new Stack();
+           
+    public static void main(String args[]) {
+        int x=10;
+        int y=25;
+        int z=x+y;
+    //     st.push(5);
+    //     st.push(6);
+    //     st.push(7);
+    //   st.push(8);
+    //   st.push(5);
+       Modified_Queue mq=new Modified_Queue();
+       mq.enqueue(5);
+       mq.enqueue(6);
+       mq.enqueue(7);
+       mq.enqueue(8);
+    //   mq.dequeue();
+    //   mq.dequeue();
+       mq.enqueue(2);
+       mq.dequeue();
+       mq.dequeue();
+       
+       System.out.println("Sum of x+y = " + z);
+    }
+    
+    public void enqueue(int x)
+    {
+     if(st1.isEmpty() && st2.isEmpty())
+     {
+          st1.push(x);
+            st2.clear();
+         
+     }
+     if(st1.isEmpty() && !st2.isEmpty())
+     {
+          st1.push(x);
+            st2.clear();
+         
+     }
+    
+            st2.clear();
+       
+         
+         for(int i=0;i<st1.size();i++)
+         {
+             st2.push(st1.pop());
+             System.out.println(st2.peek());         
+         
+             
+         }
+}
+        
+    
+    public void dequeue()
+    {
+    //   if(!st2.isEmpty())
+    //     {st2.clear();
+    //     }
+        // for(int i=0;i<st1.size();i++)
+        // {
+        //   System.out.println("st1 entered in st2");
+        //     st2.push(st1.pop());
+        // }
+        System.out.println(st2.peek());
+        st2.pop();
+        for(int i=0;i<st2.size();i++)
+        {
+            st1.push(st2.pop());
+        }
+    }
+
+}
